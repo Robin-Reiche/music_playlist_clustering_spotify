@@ -37,7 +37,7 @@ music_playlist_clustering_spotify/
 |- moosic_playlist_clustering.ipynb   # Full analysis notebook
 |
 |- data/
-   |- 3_spotify_5000_songs.csv        # Original dataset (5,235 songs)
+   |- spotify_5000_songs.csv           # Original dataset (5,235 songs)
 ```
 
 ## Visualisations
