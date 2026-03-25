@@ -4,6 +4,8 @@
 
 Moosic is a startup that curates playlists by hand, but their team of music experts can't keep up with growing demand. This project explores whether Spotify's numerical audio features (danceability, energy, valence, tempo) are enough to automatically group ~5,000 songs into clusters that could serve as playlists. We test DBSCAN for outlier detection and K-Means for the actual clustering, and evaluate the results both statistically (silhouette scores) and by manually inspecting the generated playlists.
 
+This was a capstone project completed during a Data Science & AI training program at WBS Coding School and was presented to the cohort in March 2026.
+
 ## Dataset & Sources
 
 - **Source**: [Spotify Web API - Audio Features](https://developer.spotify.com/documentation/web-api/reference/get-audio-features)
@@ -54,13 +56,12 @@ The notebook contains the following key plots:
 3. **Run the Code**: Open the notebook in Jupyter and run all cells top to bottom
 4. **Dependencies**: Standard data science stack (pandas, numpy, scikit-learn, matplotlib, seaborn)
 
-## Future Work
+## Limitations
 
-- **Genre data**: Pulling genre labels from the Spotify API would immediately improve cluster coherence
-- **User listening data**: What songs people actually play back-to-back captures the subjective "vibe" that audio features miss
-- **Post-processing**: Splitting oversized clusters and merging small ones to hit the ~50 song editorial target
-- **NLP on lyrics**: Adding a text dimension could help separate songs that sound alike but feel different
-- **Semi-supervised refinement**: Using feedback from Moosic's music team to gradually improve the clusters
+- **Audio features don't capture genre.** Two songs can have nearly identical danceability, energy, valence, and tempo but feel completely different because of vocals, lyrics, or cultural context. Jazz and classical end up in the same cluster, reggaeton sits next to rock.
+- **No control over cluster sizes.** K-Means produced clusters ranging from 41 to 235 songs. The ~50 song editorial target would require a post-processing step (splitting/merging) that's outside the scope of this prototype.
+- **Moderate silhouette scores (0.21).** The data doesn't have sharp natural groupings. The clusters are meaningful when inspected, but the boundaries are soft rather than crisp.
+- **Missing data dimensions.** Genre labels, user listening behavior, or lyrics would all add signal that pure audio features can't provide.
 
 ## Contact
 
